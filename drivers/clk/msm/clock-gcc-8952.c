@@ -262,6 +262,7 @@ static struct pll_freq_tbl apcs_c1_pll_freq[] = {
 	F_APCS_PLL(1497600000, 78, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1516800000, 79, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1536000000, 80, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL(1574400000, 82, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1651200000, 86, 0x0, 0x1, 0x0, 0x0, 0x0),
 };
 
@@ -4171,13 +4172,13 @@ static void override_for_8917(int speed_bin)
 	if (speed_bin) {
 		OVERRIDE_FMAX5(gfx3d,
 			LOWER, 270000000, LOW, 400000000, NOMINAL, 484800000,
-			NOM_PLUS, 523200000, HIGH, 650000000);
-		OVERRIDE_FTABLE(gfx3d, ftbl_gcc_oxili_gfx3d_clk, 8917_650MHz);
+			NOM_PLUS, 523200000, HIGH, 598000000);
+		OVERRIDE_FTABLE(gfx3d, ftbl_gcc_oxili_gfx3d_clk, 8917);
 	} else {
 		OVERRIDE_FMAX5(gfx3d,
 			LOWER, 270000000, LOW, 400000000, NOMINAL, 484800000,
-			NOM_PLUS, 523200000, HIGH, 598000000);
-		OVERRIDE_FTABLE(gfx3d, ftbl_gcc_oxili_gfx3d_clk, 8917);
+			NOM_PLUS, 523200000, HIGH, 650000000);
+		OVERRIDE_FTABLE(gfx3d, ftbl_gcc_oxili_gfx3d_clk, 8917_650MHz);
 	}
 
 	OVERRIDE_FMAX1(cci, LOWER, 37500000);
